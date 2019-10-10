@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
 
 :root {
+  --bright-orange: #ff8a5e;
   --bright-red: #ff6a75;
   --light-gray: #ededed;
+  --default: #3a4b5c;
+  --white: #ffffff;
 }
 
 html,
@@ -11,10 +14,10 @@ body {
   width: 100%;
   padding: 0;
   margin: 0;
-  background: #fff;
+  background: var(--white);
   font-family: 'Roboto', arial, sans-serif;
   font-weight: 400;
-  color: #3a4b5c;
+  color: var(--default);
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

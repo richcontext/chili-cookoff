@@ -1,0 +1,14 @@
+.input {
+  border: 2px solid var(--default);
+  border-radius: 0.25rem;
+  font-size: 1.25rem;
+  padding: 1rem;
+  font-weight: 700;
+  margin: 0.5rem 0;
+  color: var(--default);
+  outline: none;
+}
+
+.input::placeholder {
+  color: rgba(58, 75, 92, 0.6);
+}
