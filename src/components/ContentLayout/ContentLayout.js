@@ -1,5 +1,14 @@
-import './ContentLayout.css';
+import Divider from '../Divider/Divider';
+import styles from './ContentLayout.css';
 
-const ContentLayout = ({ children }) => <div class="content-layout">{children}</div>;
+const ContentLayout = ({ title, children }) => (
+  <section class={styles.layout}>
+    <div class={styles.content}>
+      <h2 class={styles.title}>{title}</h2>
+      {children}
+    </div>
+    <Divider />
+  </section>
+);
 
 export default ContentLayout;

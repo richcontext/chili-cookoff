@@ -1,0 +1,8 @@
+.divider {
+  width: 100%;
+  max-width: 500px;
+  border-left: 2px solid var(--light-gray);
+  border-right: 2px solid var(--light-gray);
+  border-top: 2px solid var(--light-gray);
+  height: 4rem;
+}

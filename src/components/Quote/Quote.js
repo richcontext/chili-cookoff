@@ -1,9 +1,12 @@
-import './Quote.css';
+import styles from './Quote.css';
 
 const Quote = () => (
-  <div class="quote">
-    <p class="quote__text">Quote</p>
-    <p class="quote__author">Name</p>
+  <div class={styles.container}>
+    <p>
+      If you really want to make a friend, go to someone’s house and eat with him… the people who
+      give you their food give you their heart.
+    </p>
+    <p class={styles.author}>Cesar Chavez</p>
   </div>
 );
 

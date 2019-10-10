@@ -1,0 +1,11 @@
+.container {
+  border-left: 2px solid var(--bright-red);
+  padding-left: 1rem;
+  max-width: 416px;
+  margin: 5rem 0;
+}
+
+.author {
+  font-style: italic;
+  margin-top: 0.5rem;
+}

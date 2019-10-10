@@ -1,0 +1,13 @@
+.layout {
+  width: 100%;
+  max-width: 500px;
+  margin-top: 1rem;
+}
+
+.title {
+  margin-bottom: 2rem;
+}
+
+.content {
+  margin: 0 4.75rem 7.5rem 4.75rem;
+}

@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
 
+:root {
+  --bright-red: #ff6a75;
+  --light-gray: #ededed;
+}
+
 html,
 body {
   height: 100%;
@@ -10,14 +15,32 @@ body {
   font-family: 'Roboto', arial, sans-serif;
   font-weight: 400;
   color: #3a4b5c;
+  font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-* {
-  box-sizing: border-box;
+h1 {
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin: 1.5rem 0;
 }
 
-#app {
-  height: 100%;
+h2 {
+  font-weight: 700;
+  font-size: 2rem;
+  margin: 1rem 0;
+}
+
+h4 {
+  font-size: 1.125rem;
+  margin: 0.5rem 0;
+}
+
+p {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
 }
