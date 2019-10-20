@@ -1,0 +1,10 @@
+.winnerLayout {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.winnerName {
+  margin-left: 1.5rem;
+}

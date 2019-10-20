@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from 'preact/hooks';
+import { formatQueryResults } from '../../utils/format-query';
 import ContentLayout from '../ContentLayout/ContentLayout';
 import FirebaseContext from '../../context/Firebase';
 import Rating from '../Rating/Rating';
@@ -27,7 +28,7 @@ const Entrants = () => {
   useEffect(() => {
     db.collection('entrants')
       .get()
-      .then(({ docs }) => setEntrants(createEntrants(docs)))
+      .then(({ docs }) => setEntrants(formatQueryResults(docs)))
       .catch(console.warn);
   }, []);
 
@@ -56,15 +57,6 @@ function renderEntrants(entrants) {
       </div>
     );
   });
-}
-
-function createEntrants(queryResults) {
-  return queryResults
-    .map(document => ({
-      id: document.id,
-      ...document.data()
-    }))
-    .reverse();
 }
 
 export default Entrants;
