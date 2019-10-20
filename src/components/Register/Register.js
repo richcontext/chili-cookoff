@@ -26,10 +26,16 @@ const Register = () => {
           name,
           chiliName,
           isVeg,
-          spiceLevel
+          spiceLevel,
+          createdTs: Date.now()
         })
         .then(() => {
           setSubmitting(false);
+          setName('');
+          setChiliName('');
+          setIsVeg(false);
+          setSpiceLevel(1);
+
           console.info('Successfully added to Firebase');
         })
         .catch(err => {
@@ -79,7 +85,7 @@ function validateForm(...values) {
       case 'string':
         return value.length > 0;
       case 'number':
-        return value > 0 && value < 5;
+        return value > 0 && value <= 5;
       case 'boolean':
         return true;
       default:

@@ -26,3 +26,13 @@
   margin-top: 1rem;
   border-bottom: 2px solid var(--gray);
 }
+
+.messageLayout {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.message {
+  margin-right: 0.5rem;
+}
