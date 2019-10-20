@@ -29,6 +29,8 @@
     "preact-render-spy": "^1.2.1"
   },
   "dependencies": {
+    "dotenv-safe": "^8.1.0",
+    "firebase": "^7.2.0",
     "preact": "^10.0.0-rc.3",
     "preact-render-to-string": "^5.0.6"
   },
