@@ -4,6 +4,7 @@
   --bright-orange: #ff8a5e;
   --bright-red: #ff6a75;
   --light-gray: #ededed;
+  --gray: #afb8c1;
   --default: #3a4b5c;
   --white: #ffffff;
 }
@@ -33,6 +34,12 @@ h2 {
   font-weight: 700;
   font-size: 2rem;
   margin: 1rem 0;
+}
+
+h3 {
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin: 0.75rem 0;
 }
 
 h4 {

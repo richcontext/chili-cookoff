@@ -12,3 +12,7 @@
 .input::placeholder {
   color: rgba(58, 75, 92, 0.6);
 }
+
+.input:first-of-type {
+  margin-top: 0;
+}

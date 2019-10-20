@@ -1,0 +1,28 @@
+.chiliName {
+  margin: 0;
+}
+
+.chefName {
+  margin: 0.25rem 0 0.5rem 0;
+}
+
+.chiliInfoLayout {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.iconPadding {
+  margin-left: 1rem;
+  margin-bottom: 1px;
+}
+
+.entrantCard {
+  margin: 1.5rem 0;
+}
+
+.cardDivider {
+  width: 100%;
+  margin-top: 1rem;
+  border-bottom: 2px solid var(--gray);
+}

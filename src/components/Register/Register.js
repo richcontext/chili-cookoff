@@ -1,12 +1,15 @@
-import { useState } from 'preact/hooks';
+import { useState, useContext } from 'preact/hooks';
 import ContentLayout from '../ContentLayout/ContentLayout';
 import TextInput from './TextInput/TextInput';
 import styles from './Register.css';
 import CheckBox from './CheckBox/CheckBox';
-import Rating from './Rating/Rating';
+import Rating from '../Rating/Rating';
 import icons from '../../theme/icons';
+import FirebaseContext from '../../context/Firebase';
 
 const Register = () => {
+  const db = useContext(FirebaseContext).firestore();
+  const [submitting, setSubmitting] = useState(false);
   const [name, setName] = useState('');
   const [chiliName, setChiliName] = useState('');
   const [isVeg, setIsVeg] = useState(false);
@@ -14,7 +17,28 @@ const Register = () => {
 
   const onSubmit = evt => {
     evt.preventDefault();
-    console.log('form submitted');
+    setSubmitting(true);
+
+    if (validateForm(name, chiliName, isVeg, spiceLevel)) {
+      return db
+        .collection('entrants')
+        .add({
+          name,
+          chiliName,
+          isVeg,
+          spiceLevel
+        })
+        .then(() => {
+          setSubmitting(false);
+          console.info('Successfully added to Firebase');
+        })
+        .catch(err => {
+          console.error('Error when submitting data to Firebase', err);
+
+          setSubmitting(false);
+          // handle error
+        });
+    }
   };
 
   return (
@@ -37,13 +61,31 @@ const Register = () => {
           icon={icons.pepper}
           viewBox="0 0 512 512"
           onClick={setSpiceLevel}
+          width={30}
         />
-        <button class={styles.button} role="submit">
+        <button class={styles.button} role="submit" disabled={submitting || !name || !chiliName}>
           Sign me up, Mister
         </button>
       </form>
     </ContentLayout>
   );
 };
+
+function validateForm(...values) {
+  return values.every(value => {
+    const type = typeof value;
+
+    switch (type) {
+      case 'string':
+        return value.length > 0;
+      case 'number':
+        return value > 0 && value < 5;
+      case 'boolean':
+        return true;
+      default:
+        return false;
+    }
+  });
+}
 
 export default Register;
