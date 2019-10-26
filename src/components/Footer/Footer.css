@@ -1,0 +1,16 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: var(--default);
+  padding: 0.5rem 1rem;
+}
+
+.copyright {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--white);
+  margin: 2px 0;
+}

@@ -1,6 +1,10 @@
 {
   "env": {
-    "test": {
+    "dev": {
+      "plugins": ["lodash"],
+      "presets": [["preact-cli/babel", { "modules": "commonjs" }]]
+    },
+    "production": {
       "plugins": ["lodash"],
       "presets": [["preact-cli/babel", { "modules": "commonjs" }]]
     }
