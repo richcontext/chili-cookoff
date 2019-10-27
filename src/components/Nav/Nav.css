@@ -1,0 +1,47 @@
+.navShow {
+  opacity: 1;
+  transition: opacity 1s ease-in;
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+}
+
+.navHidden {
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.navOption {
+  color: var(--default);
+  font-weight: 700;
+  margin: 0.25rem 0;
+  cursor: pointer;
+}
+
+.navOption a {
+  color: var(--default);
+  text-decoration: none;
+  opacity: 0.6;
+}
+
+.navOption a:visited {
+  color: var(--default);
+}
+
+.navOption a:hover {
+  opacity: 0.8;
+}
+
+.navOption .active {
+  color: var(--default);
+  opacity: 1;
+}
+
+.navList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}

@@ -1,8 +1,9 @@
 import { Fragment } from 'preact';
+import { forwardRef } from 'preact/compat';
 import ContentLayout from '../ContentLayout/ContentLayout';
 import styles from './Rules.css';
 
-const Rules = () => {
+const Rules = forwardRef((props, ref) => {
   const rules = [
     {
       title: 'Who are the judges?',
@@ -25,8 +26,12 @@ const Rules = () => {
     }
   ];
 
-  return <ContentLayout title="Rules">{renderRules(rules)}</ContentLayout>;
-};
+  return (
+    <ContentLayout ref={ref} title="Rules">
+      {renderRules(rules)}
+    </ContentLayout>
+  );
+});
 
 function renderRules(rules) {
   return rules.map(({ title, copy }) => (

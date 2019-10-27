@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from 'preact/hooks';
+import { forwardRef } from 'preact/compat';
 import { formatQueryResults } from '../../utils/format-query';
 import ContentLayout from '../ContentLayout/ContentLayout';
 import FirebaseContext from '../../context/Firebase';
@@ -21,21 +22,28 @@ const VegetarianIcon = ({ isVeg }) => {
   );
 };
 
-const Entrants = () => {
-  const db = useContext(FirebaseContext).firestore();
+const Entrants = forwardRef((props, ref) => {
+  const db = useContext(FirebaseContext);
   const [entrants, setEntrants] = useState(null);
 
   useEffect(() => {
-    db.collection('entrants')
+    db.firestore()
+      .collection('entrants')
       .get()
       .then(({ docs }) => setEntrants(formatQueryResults(docs)))
       .catch(console.warn);
 
-    db.collection('entrants').onSnapshot(({ docs }) => setEntrants(formatQueryResults(docs)));
+    db.firestore()
+      .collection('entrants')
+      .onSnapshot(({ docs }) => setEntrants(formatQueryResults(docs)));
   }, []);
 
-  return <ContentLayout title="Entrants">{renderEntrants(entrants)}</ContentLayout>;
-};
+  return (
+    <ContentLayout ref={ref} title="Entrants">
+      {renderEntrants(entrants)}
+    </ContentLayout>
+  );
+});
 
 function renderEntrants(entrants) {
   if (!entrants || entrants.length === 0) {
