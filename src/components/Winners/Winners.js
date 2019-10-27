@@ -1,27 +1,29 @@
 import { useContext, useState, useEffect } from 'preact/hooks';
+import { forwardRef } from 'preact/compat';
 import { formatQueryResults } from '../../utils/format-query';
 import FirebaseContext from '../../context/Firebase';
 import ContentLayout from '../ContentLayout/ContentLayout';
 import Medal from './Medal/Medal';
 import styles from './Winners.css';
 
-const Winners = () => {
-  const db = useContext(FirebaseContext).firestore();
+const Winners = forwardRef((props, ref) => {
+  const db = useContext(FirebaseContext);
   const [winners, setWinners] = useState(null);
 
   useEffect(() => {
-    db.collection('winners')
+    db.firestore()
+      .collection('winners')
       .get()
       .then(({ docs }) => setWinners(formatQueryResults(docs)))
       .catch(console.warn);
   }, []);
 
   return (
-    <ContentLayout title="Winners" hideDivider>
+    <ContentLayout ref={ref} title="Winners" hideDivider>
       {renderWinners(winners)}
     </ContentLayout>
   );
-};
+});
 
 function renderWinners(winners) {
   if (!winners) {

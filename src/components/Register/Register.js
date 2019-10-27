@@ -1,4 +1,5 @@
 import { useState, useContext } from 'preact/hooks';
+import { forwardRef } from 'preact/compat';
 import startCase from 'lodash/startCase';
 import ContentLayout from '../ContentLayout/ContentLayout';
 import Icon from '../Icon/Icon';
@@ -16,8 +17,8 @@ const ErrorText = ({ error }) => (
   </div>
 );
 
-const Register = () => {
-  const db = useContext(FirebaseContext).firestore();
+const Register = forwardRef((props, ref) => {
+  const db = useContext(FirebaseContext);
   const [submitting, setSubmitting] = useState(false);
   const [name, setName] = useState('');
   const [chiliName, setChiliName] = useState('');
@@ -36,6 +37,7 @@ const Register = () => {
     }
 
     return db
+      .firestore()
       .collection('entrants')
       .add({
         name: startCase(name),
@@ -63,7 +65,7 @@ const Register = () => {
   };
 
   return (
-    <ContentLayout title="Register">
+    <ContentLayout ref={ref} title="Register">
       {error && <ErrorText error={error} />}
       <form onSubmit={onSubmit} class={styles.form}>
         <TextInput
@@ -91,7 +93,7 @@ const Register = () => {
       </form>
     </ContentLayout>
   );
-};
+});
 
 function validateForm(...values) {
   return values.every(value => {
