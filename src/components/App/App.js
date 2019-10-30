@@ -6,6 +6,7 @@ import Quote from '../Quote/Quote';
 import Nav from '../Nav/Nav';
 import Rules from '../Rules/Rules';
 import { FirebaseProvider } from '../../context/Firebase';
+import DownArrow from './DownArrow/DownArrow';
 import Register from '../Register/Register';
 import Entrants from '../Entrants/Entrants';
 import Winners from '../Winners/Winners';
@@ -16,7 +17,7 @@ import styles from './App.css';
 
 const App = () => {
   const [activeSection, setActiveSection] = useState('Top');
-
+  const [showArrow, setShowArrow] = useState(false);
   const sectionRef = useRef(activeSection);
   const rulesRef = useRef(null);
   const registerRef = useRef(null);
@@ -25,12 +26,13 @@ const App = () => {
 
   const onScroll = () => {
     const { scrollTop, offsetHeight, scrollHeight } = document.body;
-
     const rulesTop = calcSectionStart(rulesRef);
     const registerTop = calcSectionStart(registerRef);
     const entrantsTop = calcSectionStart(entrantsRef);
     const winnersTop = calcSectionStart(winnersRef);
     const isBottomOfPage = scrollTop + offsetHeight >= scrollHeight;
+
+    setShowArrow(false);
 
     switch (true) {
       case scrollTop < rulesTop && sectionRef.current !== 'Top':
@@ -54,6 +56,12 @@ const App = () => {
   };
 
   useEffect(() => {
+    return setTimeout(() => {
+      return setShowArrow(true);
+    }, 6000);
+  }, []);
+
+  useEffect(() => {
     sectionRef.current = activeSection;
     document.body.addEventListener('scroll', onScroll);
   }, [activeSection]);
@@ -65,6 +73,7 @@ const App = () => {
         activeSection={activeSection}
         scrollToTop={() => document.body.scrollTo(0, 0)}
       />
+      <DownArrow show={showArrow} />
       <FirebaseProvider value={firebase}>
         <main class={styles.app}>
           <img src={logo} alt="Chili Cook-Off Logo - a pot of peppers" />

@@ -1,0 +1,41 @@
+.downArrowShow {
+  opacity: 1;
+  position: fixed;
+  bottom: 1.5rem;
+  right: calc(0.15 * 100vw);
+  transition: opacity 0.5s ease-in;
+  animation-name: bounce;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  transform-origin: bottom;
+}
+
+.downArrowHidden {
+  opacity: 0;
+  position: fixed;
+  bottom: 1.5rem;
+  right: calc(0.15 * 100vw);
+  transition: opacity 0.5s ease-out;
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1, 1) translateY(0) rotateY(0);
+  }
+
+  20% {
+    transform: scale(0.98, 1.02) translateY(8px) rotateY(0);
+  }
+
+  35% {
+    transform: scale(1.02, 0.98) translateY(-16px) rotateY(210deg);
+  }
+
+  50% {
+    transform: scale(1, 1) translateY(0) rotateY(0);
+  }
+
+  100% {
+    transform: scale(1, 1) translateY(0) rotateY(0);
+  }
+}

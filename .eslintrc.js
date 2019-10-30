@@ -20,6 +20,7 @@ module.exports = {
   plugins: ['react'],
   rules: {
     indent: 'off',
+    'brace-style': 'off',
     'react/jsx-indent-props': 'off',
     'react/jsx-no-bind': 'off'
   }
