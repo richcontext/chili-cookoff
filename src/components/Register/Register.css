@@ -34,6 +34,28 @@
   border: 4px solid var(--gray);
 }
 
+.success {
+  color: var(--green);
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  margin-top: 1.5rem;
+}
+
+.successUnicorn {
+  color: var(--gray);
+  font-size: 1.25rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.unicornLayout {
+  margin-left: 0.5rem;
+}
+
 .errorLayout {
   display: flex;
   flex-direction: row;
