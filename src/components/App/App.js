@@ -23,6 +23,7 @@ const App = () => {
   const registerRef = useRef(null);
   const entrantsRef = useRef(null);
   const winnersRef = useRef(null);
+  let arrowTimeout;
 
   const onScroll = () => {
     const { scrollTop, offsetHeight, scrollHeight } = document.body;
@@ -32,6 +33,7 @@ const App = () => {
     const winnersTop = calcSectionStart(winnersRef);
     const isBottomOfPage = scrollTop + offsetHeight >= scrollHeight;
 
+    window.clearTimeout(arrowTimeout);
     setShowArrow(false);
 
     switch (true) {
@@ -56,7 +58,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    return setTimeout(() => {
+    arrowTimeout = setTimeout(() => {
       return setShowArrow(true);
     }, 6000);
   }, []);
