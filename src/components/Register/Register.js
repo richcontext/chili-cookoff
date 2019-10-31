@@ -17,8 +17,33 @@ const ErrorText = ({ error }) => (
   </div>
 );
 
+const SubmitButton = ({ submitting, success, disabled }) => {
+  if (success) {
+    return (
+      <div class={styles.success}>
+        <p>Success!</p>
+        <div class={styles.successUnicorn}>
+          You're the wind beneath my{' '}
+          <div class={styles.unicornLayout}>
+            <Icon width={30} color="orchid" icon={icons.unicorn} viewBox="0 0 640 512" />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  const text = submitting ? 'Stealing secrets...' : 'Sign me up, Mister';
+
+  return (
+    <button class={styles.button} role="submit" disabled={disabled}>
+      {text}
+    </button>
+  );
+};
+
 const Register = forwardRef((props, ref) => {
   const db = useContext(FirebaseContext);
+  const [submitSuccess, setSuccess] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [name, setName] = useState('');
   const [chiliName, setChiliName] = useState('');
@@ -47,6 +72,7 @@ const Register = forwardRef((props, ref) => {
         createdTs: Date.now()
       })
       .then(() => {
+        setSuccess(true);
         setSubmitting(false);
         setName('');
         setChiliName('');
@@ -87,9 +113,11 @@ const Register = forwardRef((props, ref) => {
           onClick={setSpiceLevel}
           width={30}
         />
-        <button class={styles.button} role="submit" disabled={submitting || !name || !chiliName}>
-          Sign me up, Mister
-        </button>
+        <SubmitButton
+          submitting={submitting}
+          disabled={submitting || !name || !chiliName}
+          success={submitSuccess}
+        />
       </form>
     </ContentLayout>
   );
