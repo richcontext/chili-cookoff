@@ -79,7 +79,7 @@ const App = () => {
       <FirebaseProvider value={firebase}>
         <main class={styles.app}>
           <img id="logo" src={logo} alt="Chili Cook-Off Logo - a pot of peppers" />
-          <h1>October 29, 2019</h1>
+          <h1>{process.env.EVENT_DATE}</h1>
           <Quote />
           <Divider />
           <Rules ref={rulesRef} />
