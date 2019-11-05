@@ -1,5 +1,6 @@
 .icon {
   margin: 0 2px;
+  cursor: pointer;
 }
 
 .icon:first-of-type {

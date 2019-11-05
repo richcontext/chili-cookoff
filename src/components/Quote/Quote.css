@@ -9,3 +9,9 @@
   font-style: italic;
   margin-top: 0.5rem;
 }
+
+@media screen and (max-width: 532px) {
+  .container {
+    max-width: 311px;
+  }
+}

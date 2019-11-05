@@ -8,3 +8,9 @@
 .winnerName {
   margin-left: 1.5rem;
 }
+
+@media screen and (max-width: 532px) {
+  h2 {
+    font-size: 1.5rem;
+  }
+}

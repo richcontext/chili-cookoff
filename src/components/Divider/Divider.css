@@ -6,3 +6,10 @@
   border-top: 2px solid var(--light-gray);
   height: 4rem;
 }
+
+@media screen and (max-width: 532px) {
+  .divider {
+    max-width: 311px;
+    margin: auto;
+  }
+}

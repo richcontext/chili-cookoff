@@ -78,7 +78,7 @@ const App = () => {
       <DownArrow show={showArrow} />
       <FirebaseProvider value={firebase}>
         <main class={styles.app}>
-          <img src={logo} alt="Chili Cook-Off Logo - a pot of peppers" />
+          <img id="logo" src={logo} alt="Chili Cook-Off Logo - a pot of peppers" />
           <h1>October 29, 2019</h1>
           <Quote />
           <Divider />

@@ -8,7 +8,7 @@ const CheckBox = ({ label, checked, onClick }) => {
 
   return (
     <div class={styles.layout} onClick={onClick}>
-      <Icon icon={icon} color={color} />
+      <Icon icon={icon} color={color} customStyles={styles.checkbox} />
       <p class={styles.label}>{label}</p>
     </div>
   );

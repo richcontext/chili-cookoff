@@ -13,3 +13,13 @@
     margin-top: 9rem;
   }
 }
+
+@media screen and (max-width: 414px) {
+  #logo {
+    width: 200px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}

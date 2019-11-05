@@ -11,3 +11,15 @@
 .content {
   margin: 0 4.75rem 7.5rem 4.75rem;
 }
+
+@media screen and (max-width: 532px) {
+  .content {
+    margin: 0 auto 7.5rem auto;
+    max-width: 263px;
+  }
+
+  .anchor {
+    top: -91px;
+    position: relative;
+  }
+}
