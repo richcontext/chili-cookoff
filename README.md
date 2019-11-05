@@ -1,3 +1,5 @@
+![Logo](./src/assets/logo.svg)
+
 # Chili Cookoff
 
 A small Preact app for hosting your own Chili Cookoff!
